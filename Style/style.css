@@ -1,0 +1,27 @@
+header {
+
+    align-items: center;
+    text-align: center;
+}
+
+.cliente {
+    display: flex;
+    justify-content: left;
+    align-items: left;
+    text-align: left;
+    margin-top: 20px;
+}
+
+.cliente h1 {
+    font-size: 50px;
+    margin-bottom: 10px;
+   
+}
+
+.pet{
+
+    display: flex;
+    justify-content: right;
+    align-items: right;
+    text-align: right;
+}
