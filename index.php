@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="Style/style.css">
+    <link rel="stylesheet" href="Style/style.css">
     <title>AUmigos - Cadastro</title>
 </head>
 
@@ -13,6 +13,22 @@
         <h1>Bem-vindo à AUmigos </h1>
         <h2>Sua loja de animais favorita!</h2>
     </header>
+
+
+    <div class="pet-showcase">
+        <div class="pet-card">
+            <img src="ASSETS/Cachorro.jpg" alt="Cachorro">
+            <span>Cães</span>
+        </div>
+        <div class="pet-card">
+            <img src="ASSETS/Gato.jpg" alt="Gato">
+            <span>Gatos</span>
+        </div>
+        <div class="pet-card">
+            <img src="ASSETS/Passarinho.jpg" alt="Passarinho">
+            <span>Aves</span>
+        </div>
+    </div>
 
     <main>
         <form action="processar_cadastro.php" method="POST" class="form-container">
@@ -34,7 +50,7 @@
                     </div>
                 </div>
 
-               
+             
                 <div class="form-section">
                     <h2>Dados do AUmigo</h2>
                     <div class="input-group">
@@ -56,7 +72,7 @@
                 </div>
             </div>
 
- 
+            
             <div class="btn-container">
                 <button type="submit" class="btn-submit">Finalizar Cadastro</button>
             </div>
