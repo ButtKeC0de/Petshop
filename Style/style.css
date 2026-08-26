@@ -3,25 +3,19 @@ header {
     align-items: center;
     text-align: center;
 }
+main{
 
-.cliente {
-    display: flex;
-    justify-content: left;
-    align-items: left;
-    text-align: left;
-    margin-top: 20px;
+display:flex;
+padding: 500px;
+gap: 10px;
 }
 
-.cliente h1 {
-    font-size: 50px;
-    margin-bottom: 10px;
-   
+
+
+.container1{
+    padding: 50px;
+    background-color: cadetblue;
+    border-radius: 20px ;
 }
 
-.pet{
 
-    display: flex;
-    justify-content: right;
-    align-items: right;
-    text-align: right;
-}
