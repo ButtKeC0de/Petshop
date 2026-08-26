@@ -14,7 +14,6 @@
         <h2>Sua loja de animais favorita!</h2>
     </header>
 
-
     <div class="pet-showcase">
         <div class="pet-card">
             <img src="ASSETS/Cachorro.jpg" alt="Cachorro">
@@ -31,7 +30,7 @@
     </div>
 
     <main>
-        <form action="processar_cadastro.php" method="POST" class="form-container">
+        <form action="infra/processar_cadastro.php" method="POST" class="form-container">
             <div class="sections-wrapper">
             
                 <div class="form-section">
@@ -50,7 +49,6 @@
                     </div>
                 </div>
 
-             
                 <div class="form-section">
                     <h2>Dados do AUmigo</h2>
                     <div class="input-group">
@@ -72,12 +70,49 @@
                 </div>
             </div>
 
-            
             <div class="btn-container">
                 <button type="submit" class="btn-submit">Finalizar Cadastro</button>
             </div>
         </form>
     </main>
+
+    <footer>
+        <h1>Agendamentos</h1>
+
+        <div class="cadastros-container">
+            <?php
+            include 'infra/db/connect.php';
+
+            $sql = "SELECT * FROM clientes";
+            $result = $conn->query($sql);
+
+            if ($result && $result->num_rows > 0) {
+                while ($row = $result->fetch_assoc()) {
+                    echo "<div class='cadastro-card'>";
+                    echo "<h3>Cliente: " . htmlspecialchars($row['nome']) . "</h3>";
+                    echo "<p>Email: " . htmlspecialchars($row['email']) . "</p>";
+                    echo "<p>Telefone: " . htmlspecialchars($row['telefone']) . "</p>";
+                    echo "<p>Nome do AUmigo: " . htmlspecialchars($row['nome_au']) . "</p>";
+                    echo "<p>Tipo de Animal: " . htmlspecialchars($row['tipo']) . "</p>";
+                    echo "<p>Raça: " . htmlspecialchars($row['raca']) . "</p>";
+                    echo "<p>Idade: " . htmlspecialchars($row['idade']) . " anos</p>";
+                    
+    
+                    echo "<div class='card-actions'>";
+                    echo "  <a href='public/edit.php?id=" . $row['id'] . "' style='background: #4CAF50; color: white; padding: 6px 12px; text-decoration: none; border-radius: 4px; font-weight: bold;'>Editar</a>";
+                    echo "  <a href='public/delete.php?id=" . $row['id'] . "' onclick=\"return confirm('Deseja realmente excluir este cadastro?');\" style='background: #f44336; color: white; padding: 6px 12px; text-decoration: none; border-radius: 4px; font-weight: bold;'>Excluir</a>";
+                    echo "</div>";
+
+                    echo "</div>";
+                }
+            } else {
+                echo "<p>Nenhum cliente cadastrado.</p>";
+            }
+
+            $conn->close();
+            ?>
+        </div>
+    </footer>
 </body>
 
 </html>
