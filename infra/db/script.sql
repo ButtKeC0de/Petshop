@@ -1,19 +1,28 @@
-CREATE DATABASE  Petshop_Buttke;
+CREATE DATABASE Petshop_Buttke;
 
 USE Petshop_Buttke;
 
-CREATE TABLE  pets (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    nome VARCHAR(100) NOT NULL,
-    especie VARCHAR(50) NOT NULL,
-    idade INT NOT NULL,
-    preco DECIMAL(10, 2) NOT NULL
-);
+SET FOREIGN_KEY_CHECKS = 0;
+DROP TABLE IF EXISTS pets;
+DROP TABLE IF EXISTS clientes;
+SET FOREIGN_KEY_CHECKS = 1;
 
-CREATE TABLE  clientes (
+
+CREATE TABLE clientes (
     id INT AUTO_INCREMENT PRIMARY KEY,
     nome VARCHAR(100) NOT NULL,
     email VARCHAR(100) NOT NULL UNIQUE,
     telefone VARCHAR(15) NOT NULL,
-    FOREIGN KEY (id) REFERENCES pets(id)
+    data_cadastro TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+
+CREATE TABLE pets (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    cliente_id INT NOT NULL,
+    nome_au VARCHAR(100) NOT NULL,
+    tipo VARCHAR(50) NOT NULL,
+    raca VARCHAR(50) NOT NULL,
+    idade INT NOT NULL,
+    FOREIGN KEY (cliente_id) REFERENCES clientes(id) ON DELETE CASCADE
 );
