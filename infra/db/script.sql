@@ -1,0 +1,19 @@
+CREATE DATABASE  Petshop_Buttke;
+
+USE Petshop_Buttke;
+
+CREATE TABLE  pets (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(100) NOT NULL,
+    especie VARCHAR(50) NOT NULL,
+    idade INT NOT NULL,
+    preco DECIMAL(10, 2) NOT NULL
+);
+
+CREATE TABLE  clientes (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(100) NOT NULL,
+    email VARCHAR(100) NOT NULL UNIQUE,
+    telefone VARCHAR(15) NOT NULL,
+    FOREIGN KEY (id) REFERENCES pets(id)
+);
